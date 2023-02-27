@@ -1,0 +1,5 @@
+#!/bin/zsh
+kitty --start-as=fullscreen -o background_opacity=0.7 -e rain &
+export KITTYPID=$!
+i3lock-launch
+kill $KITTYPID

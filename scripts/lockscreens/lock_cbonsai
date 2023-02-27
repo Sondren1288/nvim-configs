@@ -1,0 +1,5 @@
+#!/bin/bash
+kitty --start-as=fullscreen -o background_opacity=0.8 -e bash -c 'sleep 0.5s; cbonsai -li --time=0.02 --life=70' &
+export KITTYPID=$!
+i3lock-launch
+kill $KITTYPID

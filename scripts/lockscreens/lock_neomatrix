@@ -1,0 +1,24 @@
+#!/bin/bash
+color[0]="green"
+color[1]="green2"
+color[2]="green3"
+color[3]="yellow"
+color[4]="orange"
+color[5]="red"
+color[6]="blue"
+color[7]="cyan"
+color[8]="gold"
+color[9]="rainbow"
+color[10]="purple"
+color[11]="pink"
+color[12]="pink2"
+color[13]="vaporwave"
+
+did=$(fortune -a | tr '\n' ' ' | tr '"' "'")
+
+select_color=${color[ $RANDOM % ${#color[@]}]}
+
+kitty --start-as=fullscreen -o font_size=20 -o background_opacity=0.5 --config=~/.config/kitty/kitty_.conf -e neo-matrix -c $select_color -m "${did}" &
+export KITTYPID=$!
+i3lock-launch
+kill $KITTYPID

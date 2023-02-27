@@ -1,0 +1,2 @@
+#!/bin/bash -x
+cowsay -f $(find /usr/share/cows -type f | shuf -n 1) $(fortune -a) && read v

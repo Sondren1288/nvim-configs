@@ -1,0 +1,5 @@
+#!/bin/zsh
+kitty --start-as=fullscreen -e bash -c "sleep 0.5s; cmatrix" &
+export KITTYPID=$!
+i3lock-launch
+kill $KITTYPID

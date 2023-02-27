@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+i3lock -n\
+    -c 00000000 \
+    --inside-color=00000000 \
+    --ring-color=7AA4A1 \
+    --insidever-color=00000000 \
+    --verif-color=AD5C7C \
+    --ringver-color=AD5C7C \
+    --verif-text="Verifying.." \
+    --insidewrong-color=00000000 \
+    --ringwrong-color=E85C51FF \
+    --wrong-color=E85C51FF \
+    --noinput-text="No input" \
+    --wrong-text="Wrong!" \
+    --bshl-color=FDA47F \
+    --keyhl-color=AFD4DE
+    

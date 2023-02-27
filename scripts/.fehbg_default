@@ -1,0 +1,3 @@
+#!/bin/zsh
+sleep 4s
+feh --no-fehbg --bg-fill ~/.wallpapers/941898.jpg

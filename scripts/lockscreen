@@ -1,0 +1,17 @@
+#!/bin/bash
+
+script_path=$(cd "$(dirname "$0")" ; pwd -P)
+
+prepend="${script_path}/lockscreens"
+
+locks[0]="${prepend}/lock_asciiquarium"
+locks[1]="${prepend}/lock_cbonsai"
+locks[2]="${prepend}/lock_nyan"
+#locks[3]="${prepend}/lock_cmatrix"
+locks[3]="${prepend}/lock_neomatrix"
+locks[4]="${prepend}/lock_pipes"
+locks[5]="${prepend}/lock_rain"
+
+selected_lock=${locks[ $RANDOM % ${#locks[@]} ]}
+
+eval $selected_lock

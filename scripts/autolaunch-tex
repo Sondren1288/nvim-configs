@@ -1,0 +1,31 @@
+#!/bin/zsh
+
+if [[ $# -eq 0 ]]
+then 
+	echo "$0: Missing arguments (path missing)"
+	exit 1
+fi
+# Check if the file exists
+if [[ ! ( -f $1.tex ) ]]
+then
+	# If the file does not exists, ask if it should be created
+	# The -n does not create newline
+	echo -n "$1.tex not found. Would you like to create?(y/[N]) "
+	# Read answer from terminal	
+	read create
+	
+	if [[ $create == "y" ]]
+	then
+		echo '\\documentclass{article}\n\\begin{document}\nText\n\\end{document}' > $1.tex
+		echo "File \"$1.tex\" created successfully."
+		texi2pdf $1.tex && echo "File \"$1.pdf\" created succesfully"
+		echo "Launcing..."
+	else
+		exit 0
+	fi
+else
+	echo "Launcing..."
+fi
+
+zathura $1.pdf --fork && kitty -e nvim $1.tex & disown
+latexmk -pdf -pvc $1.tex

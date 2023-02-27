@@ -1,0 +1,8 @@
+#!/bin/zsh
+kitty --start-as=fullscreen -o background_opacity=0.7 -e asciiquarium &
+export KITTYPID=$!
+#export BRIGHT=$(light)
+#sudo light -S 100
+i3lock-launch
+kill $KITTYPID
+#sudo light -S $BRIGHT

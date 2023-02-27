@@ -1,0 +1,18 @@
+#!/bin/zsh
+kitty --start-as=fullscreen -o background_opacity=0.8 -e bash-pipes -c 1 -c 2 -c 3 -c 4 -c 5 -c 6 -c 7 -r 20000000 -s 15 &
+export KITTYPID=$!
+i3lock-launch
+kill $KITTYPID
+
+
+#if [[ $# -eq 0]]
+#then 
+
+#elif [[ $(type -t $1) == function ]]
+#then
+
+#else
+
+#fi
+
+
