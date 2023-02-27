@@ -1,0 +1,21 @@
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+configuration{
+	dpi: 216;
+	show-icons: true;
+	modes: "drun";
+	combi-modes: "drun,window";
+	enable-history: false;
+	//filter: "-Avahi ";
+	disable-history: true;
+	filebrowser {
+		directories-first: true;
+		sorting-method: "name";
+	}
+
+	icon {
+		theme: "hicolor";
+	}
+}
+element-icon {
+	size: 1.5em;
+}
