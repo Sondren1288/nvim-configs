@@ -1,5 +1,5 @@
 #!/bin/zsh
 kitty --start-as=fullscreen --config=~/.config/kitty/kitty_.conf -e nyancat &
 export KITTYPID=$!
-i3lock -n -c 00000000
+i3lock-launch
 kill $KITTYPID

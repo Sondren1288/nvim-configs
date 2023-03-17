@@ -18,7 +18,7 @@ did=$(fortune -a | tr '\n' ' ' | tr '"' "'")
 
 select_color=${color[ $RANDOM % ${#color[@]}]}
 
-kitty --start-as=fullscreen -o font_size=20 -o background_opacity=0.5 --config=~/.config/kitty/kitty_.conf -e neo-matrix -c $select_color -m "${did}" &
+kitty --start-as=fullscreen -o font_size=20 -o background_opacity=0.6 --config=~/.config/kitty/kitty_.conf -e neo-matrix -c $select_color -m "${did}" &
 export KITTYPID=$!
 i3lock-launch
 kill $KITTYPID
