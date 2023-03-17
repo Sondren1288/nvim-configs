@@ -10,7 +10,6 @@ filetype on "Enable filetypes
 filetype plugin on
 filetype indent on
 
-colorscheme terafox
 " Keybinds
 lua require('remap')
 
@@ -27,6 +26,7 @@ lua require('language-server')
 lua require('statusline')
 lua require('fileexplore')
 
+colorscheme terafox
 "Rebind move-keys for norwegian experience
 :nnoremap ø l
 :nnoremap l k
