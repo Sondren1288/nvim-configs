@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
+  -- Git
+  use 'tpope/vim-fugitive' 
   -- colorschemes
   use 'rebelot/kanagawa.nvim'
   use 'morhetz/gruvbox'
@@ -45,6 +47,12 @@ return require('packer').startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
+  use 'thedenisnikulin/vim-cyberpunk'
+  use 'MuazAlhaidar/Breath2_Ripoff_Vim_Theme'
+  use 'eddyekofo94/gruvbox-flat.nvim'
+
+  -- Arduino
+  use 'sudar/vim-arduino-syntax'
 
   -- Lilypond 
   use 'andyl/nvls'

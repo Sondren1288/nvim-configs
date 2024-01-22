@@ -15,11 +15,9 @@ lua require('remap')
 
 "lua require('haskell-tools')
 "lua require('haskell-self')
-lua require('ensure-packer')
-" ensure-packer has to be the first to run for the others to work
-" and even then, it might require some fiddling with :PackerUpdate
-" Most likely have to be run a couple of times
-lua require('plugins')
+lua require('ensure-lazy')
+
+lua require('plugins_lazy')
 lua require('treesitter')
 lua require('config-vim')
 lua require('language-server')
@@ -27,7 +25,7 @@ lua require('statusline')
 lua require('fileexplore')
 
 colorscheme terafox
-"Rebind move-keys for norwegian experience
+" Rebind move-keys for norwegian experience
 :nnoremap ø l
 :nnoremap l k
 :nnoremap k j

@@ -4,7 +4,6 @@ require'nvim-treesitter.configs'.setup {
     'python',
     'c',
     'vim',
-    'help',
   },
   auto_install = true,
   highlight = {
