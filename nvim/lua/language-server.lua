@@ -13,7 +13,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'tsserver', 'pyright' }
+local servers = {  'clangd', 'rust_analyzer', 'ts_ls', 'pyright' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
@@ -63,6 +63,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'ts-ls' },
   },
 }
 -- Mappings.
@@ -107,7 +108,7 @@ lspconfig.pyright.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['tsserver'].setup{
+require('lspconfig')['ts_ls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }

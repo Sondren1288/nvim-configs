@@ -19,10 +19,12 @@ return require('lazy').setup({
   -- Statusline
   --use 'tamton-aquib/staline.nvim'
   {
-    'nvim-lualine/lualine.nvim',
+   'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   },
-  'feline-nvim/feline.nvim',
+  {
+    'feline-nvim/feline.nvim',
+  },
   -- Icons for statuslines and similar
   'nvim-tree/nvim-web-devicons',
 

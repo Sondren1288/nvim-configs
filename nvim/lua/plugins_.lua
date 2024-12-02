@@ -1,14 +1,8 @@
 
 return require('lazy').setup({
   'nvim-lua/plenary.nvim',
-  {
-    'mrcjkb/haskell-tools.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim', -- optional
-    },
-    --branch = '1.x.x', -- recommended
-  },
+  'mrcjkb/haskell-tools.nvim',
+  'nvim-telescope/telescope.nvim', -- optional
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -17,9 +11,12 @@ return require('lazy').setup({
   --use 'tamton-aquib/staline.nvim'
   {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    enabled = false
   },
-  'feline-nvim/feline.nvim',
+  {
+    'feline-nvim/feline.nvim',
+  },
   -- Icons for statuslines and similar
   'nvim-tree/nvim-web-devicons',
 

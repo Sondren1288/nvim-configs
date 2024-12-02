@@ -33,4 +33,6 @@ vim.api.nvim_set_keymap('', 'ø', 'l', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('', 'l', 'k', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('', 'k', 'j', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('', 'j', 'h', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('ca', 'Q', 'q', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('ca', 'W', 'w', { noremap = true, silent = false })
 
