@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+
+script_path=$(cd "$(dirname "$0")" ; pwd -P)
+
+call="${script_path}/helperScripts/notice $@"
+eval $call & disown
+
+
+
+

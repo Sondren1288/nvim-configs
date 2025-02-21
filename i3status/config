@@ -24,40 +24,40 @@ order += "memory"
 order += "tztime local"
 
 ipv6 {
-        format_up = " IP6: Connected"
-        format_down = " IP6: down"
+        format_up = "  IP6: Connected"
+        format_down = "  IP6: down"
 }
 
 wireless _first_ {
-        format_up = " IP4: %essid at %quality"
+        format_up = "  IP4: %essid at %quality"
 	#at %essid) %ip"
-        format_down = " IP4: down"
+        format_down = "  IP4: down"
 }
 
 battery all {
         last_full_capacity = true
-        status_chr = ""
-        status_full = ""
-        status_bat = ""
+        status_chr = " "
+        status_full = "  "
+        status_bat = "  "
         #status_low = "LOW"
         format = "%status %percentage %remaining"
 }
 
 
 disk "/" {
-        format = " %avail"
+        format = "  %avail"
 }
 
 load {
-        format = " %1min"
+        format = "  %1min"
 }
 
 memory {
-        format = " %used / %available "
+        format = "  %used / %available "
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = " %Y-%m-%d  %H:%M:%S"
+        format = "  %Y-%m-%d   %H:%M:%S"
 }

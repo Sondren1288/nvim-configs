@@ -1,0 +1,74 @@
+#!/usr/bin/python
+
+import argparse
+import time
+import subprocess
+import datetime
+
+class CommandLineHandler:
+
+    def __init__(self):
+        self.parser = argparse.ArgumentParser(prog="Notice",
+                                         description="Notify in minutes or at time")
+
+        self.parser.add_argument('-a', '--at', 
+                            action='store', 
+                            help='Send message at time hh:mm', 
+                            dest='at',
+                            default=None)
+        self.parser.add_argument('-i', '--in', 
+                            action='store', 
+                            help='Send message in minutes time', 
+                            dest='in_', 
+                            type=float,
+                            default=0)
+        self.parser.add_argument('-m', '--message', 
+                            action='store', 
+                            help='Message to be sent',
+                            dest='message',
+                            default="Scheduled notice")
+        self.args = self.parser.parse_args()
+
+    def get_message(self):
+        return self.args.message
+
+    def check_at_or_in(self):
+        if self.args.at:
+            return "at"
+        elif self.args.in_ > 0:
+            return "in"
+        else:
+            return "no"
+        
+
+def at(point_in_time):
+    dt = datetime.datetime.now()
+    change = datetime.datetime.now()
+    hhmm = point_in_time.split(':')
+    hhmm = [int(hhmm[0]), int(hhmm[1])]
+    change = change.replace(hour=hhmm[0], minute=hhmm[1])
+    while dt < change:
+        time.sleep(30)
+        dt = datetime.datetime.now()
+
+
+def in_(time_until: float) -> None:
+    time.sleep(time_until * 60)
+
+
+def main():
+    cli = CommandLineHandler()
+    in_or_at = cli.check_at_or_in()
+    if in_or_at == "no":
+        print("No time was provided")
+        exit(1)
+
+    if in_or_at == "at":
+        at(cli.args.at)
+    elif in_or_at == "in":
+        in_(cli.args.in_)
+
+    subprocess.run(f"kitty --detach --start-as=fullscreen -o font_size=42 -e bash -c \"echo {cli.get_message()}; read -s\"", shell=True)
+
+if __name__ == '__main__':
+    main()

@@ -20,10 +20,10 @@ export BROWSER="firefox"
 setopt nocorrect
 export EDITOR="nvim"
 
-if [[ -z $DISPLAY ]]
-then
+#if [[ -z $DISPLAY ]]
+#then
 	#startx
 	#nvidia-xrun i3
-fi
+#fi
 
 # [ -f "/home/sondre/.ghcup/env" ] && source "/home/sondre/.ghcup/env" # ghcup-env

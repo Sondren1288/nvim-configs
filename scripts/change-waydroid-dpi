@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+if [[ $# -eq 0 ]]
+then
+    echo "$0: Missing new DPI"
+    exit 1
+fi
+
+# Remove ro.sf.lcd_density properly if exist
+echo "$(grep ro.sf.lcd_density /var/lib/waydroid/waydroid_base.prop)"
+sudo sed -i '/ro.sf.lcd_density/d' /var/lib/waydroid/waydroid_base.prop
+
+# Append ro.sf.lcd_density property
+echo "ro.sf.lcd_density=$1" | sudo tee -a /var/lib/waydroid/waydroid_base.prop  
