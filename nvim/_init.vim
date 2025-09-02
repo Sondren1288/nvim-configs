@@ -9,6 +9,11 @@ set cursorline
 filetype on "Enable filetypes
 filetype plugin on
 filetype indent on
+if $TERM == "xterm-kitty"
+    set termguicolors
+    let &t_ut=''
+    colorscheme default
+endif
 
 " Keybinds
 lua require('remap')

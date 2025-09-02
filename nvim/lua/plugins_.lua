@@ -2,7 +2,7 @@
 return require('lazy').setup({
   'nvim-lua/plenary.nvim',
   'mrcjkb/haskell-tools.nvim',
-  'nvim-telescope/telescope.nvim', -- optional
+  'OmniSharp/omnisharp-vim',
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -33,15 +33,15 @@ return require('lazy').setup({
   -- Git
   'tpope/vim-fugitive', 
   -- colorschemes
-  'rebelot/kanagawa.nvim',
   'morhetz/gruvbox',
   'cliuj/vim-dark-meadow',
   'Shadorain/shadotheme',
+  'EdenEast/nightfox.nvim',
   {
-    'EdenEast/nightfox.nvim',
+    'rebelot/kanagawa.nvim',
     lazy = false,
     config = function()
-      vim.cmd([[colorscheme terafox]])
+      vim.cmd([[colorscheme kanagawa]])
     end,
   },
 
@@ -50,4 +50,10 @@ return require('lazy').setup({
   'thedenisnikulin/vim-cyberpunk',
   'MuazAlhaidar/Breath2_Ripoff_Vim_Theme',
   'eddyekofo94/gruvbox-flat.nvim',
+
+  -- For colors inline
+  'norcalli/nvim-colorizer.lua',
+  
+  -- Wanted to be called after colorscheme was set
+  'nvim-telescope/telescope.nvim' -- optional
 })

@@ -115,8 +115,8 @@ set $ws1 "1:  "
 set $ws2 "2: 󰈹 "
 # "
 set $ws3 "3:  "
-set $ws4 "4:  "
-#set $ws4 "4: "
+set $ws4 "4:  "
+#set $ws4 "4: "
 set $ws5 "5:  "
 set $ws6 "6"
 set $ws7 "7"
@@ -194,10 +194,14 @@ bar {
         # font pango:Fira Code 10
         #separator_symbol |
         colors {
-                urgent_workspace #b4ae94 #24b0db #ffffff
+                urgent_workspace #b4ae94 #800009 #ffffff
                 separator #b4ae94
-                statusline #e3e1b4
-                background #15241f
+                statusline #ada37a
+                background #181c27
+
+                focused_workspace #f3dab1 #a6a65d #f3dab1
+                inactive_workspace #555555 #172539 #ada37a
+
         }
 }
 
@@ -205,9 +209,9 @@ bar {
 
 # Custom configuration stuff
 # Default border thickness
-default_border pixel 3
+default_border pixel 2
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #56a5b7
+client.focused          #ada37a #91805a #ffffff #800009   #ada37a
 
 # Wheather to hide window borders on the edges of the screen
 hide_edge_borders none
@@ -216,13 +220,14 @@ hide_edge_borders none
 
 # Set wallpaper
 exec --no-startup-id picom
-exec --no-startup-id ~/programming/haskell/battery-test/main
+exec --no-startup-id setxkbmap no
+#exec --no-startup-id ~/programming/haskell/battery-test/main
 exec_always --no-startup-id ~/.fehbg
 # Sets a default wallpaper, every reload should randomize:
 # exec --no-startup-id ~/scripts/.fehbg_default
 
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo light -U 5
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5
 
 for_window [class="(?i)firefox"] move workspace $ws2
 for_window [class="(?i)discord"] move workspace $ws4
