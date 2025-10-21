@@ -10,16 +10,10 @@
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local lspconfig = require('lspconfig')
-
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {  'clangd', 'rust_analyzer', 'ts_ls', 'pyright', 'omnisharp'}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
+vim.lsp.config("clangd", {
+  capabilities = capabilities,
+})
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -104,27 +98,30 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-lspconfig.pyright.setup{
+vim.lsp.config("pyright", {
     on_attach = on_attach,
     flags = lsp_flags,
-}
-require('lspconfig')['ts_ls'].setup{
+})
+vim.lsp.config("ts_ls", {
     on_attach = on_attach,
     flags = lsp_flags,
-}
-require('lspconfig')['rust_analyzer'].setup{
+})
+vim.lsp.config("rust_analyzer", {
     on_attach = on_attach,
     flags = lsp_flags,
     -- Server-specific settings...
     settings = {
       ["rust-analyzer"] = {}
     }
-}
-require('lspconfig')['omnisharp'].setup{
+})
+vim.lsp.config("omnisharp", {
   on_attach = on_attach,
   flags = lsp_flags
-}
---require('lspconfig')['hls'].setup{
+})
+--vim.lsp.config("hls", {
 --  on_attach = on_attach,
 --  flags = lsp_flags,
---}
+--})
+
+local servers = { "clangd", "pyright", "ts_ls", "rust_analyzer", "omnisharp" }
+vim.lsp.enable(servers)
