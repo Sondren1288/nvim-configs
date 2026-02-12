@@ -118,10 +118,14 @@ vim.lsp.config("omnisharp", {
   on_attach = on_attach,
   flags = lsp_flags
 })
+vim.lsp.config("texlab", {
+  on_attach = on_attach,
+  flags = lsp_flags
+})
 --vim.lsp.config("hls", {
 --  on_attach = on_attach,
 --  flags = lsp_flags,
 --})
 
-local servers = { "clangd", "pyright", "ts_ls", "rust_analyzer", "omnisharp" }
+local servers = { "clangd", "pyright", "ts_ls", "rust_analyzer", "omnisharp", "texlab" }
 vim.lsp.enable(servers)
