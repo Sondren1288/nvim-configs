@@ -6,6 +6,8 @@ return require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    branch = 'master',
+    disable = { "markdown", "markdown_inline" },
   },
   -- Statusline
   --use 'tamton-aquib/staline.nvim'
@@ -22,6 +24,17 @@ return require('lazy').setup({
 
   -- File tree explorer to the side
   'nvim-tree/nvim-tree.lua',
+
+  -- Es-lint
+  {
+    'esmuellert/nvim-eslint',
+    config = function()
+      require('nvim-eslint').setup({})
+    end,
+  },
+  {
+    'pmizio/typescript-tools.nvim'
+  },
  
   -- For language servers and such
   'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
@@ -55,5 +68,13 @@ return require('lazy').setup({
   'norcalli/nvim-colorizer.lua',
   
   -- Wanted to be called after colorscheme was set
-  'nvim-telescope/telescope.nvim' -- optional
+  'nvim-telescope/telescope.nvim', -- optional
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  }
 })
+
